@@ -1,0 +1,142 @@
+/* postcss-preset-env */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  :root {
+    --foreground-rgb: 51, 65, 85;
+    --background-start-rgb: 248, 250, 252;
+    --background-end-rgb: 255, 255, 255;
+    --primary-blue: 37, 99, 235;
+    --primary-dark-blue: 29, 78, 216;
+  }
+
+  body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+        180deg,
+        rgb(var(--background-start-rgb)),
+        rgb(var(--background-end-rgb))
+      );
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    min-height: 100vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .shadow-card {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    transition: box-shadow 300ms ease;
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, rgb(var(--background-start-rgb)) 0%, #e2e8f0 100%);
+  }
+
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, rgb(var(--primary-blue)), rgb(var(--primary-dark-blue)));
+  }
+
+  input, select, textarea {
+    border: 1px solid #d2d6dc;
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: #80b6f4;
+    box-shadow: 0 0 0 1px #80b6f4;
+  }
+
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .transition-all {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+  }
+
+  .btn-primary {
+    background-color: #2563eb;
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background-color: #1d4ed8;
+  }
+
+  .btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px #1d4ed8;
+  }
+
+  .form-input {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d2d6dc;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  .form-input:focus {
+    border-color: #80b6f4;
+    box-shadow: 0 0 0 1px #80b6f4;
+  }
+}
+
+@layer utilities {
+  .container-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .container-padding {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-padding {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+}
