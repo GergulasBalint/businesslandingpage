@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import React from 'react';
+<<<<<<< HEAD
 import ContactModal from './ContactModal';
+=======
+>>>>>>> db92adfbb18799bf559d5fa0b91a5a4e1efca2de
 
 const industryMultipliers = {
   tech: { revenue: 3.5, profit: 15.0 },
@@ -19,9 +22,12 @@ export default function Calculator() {
   });
 
   const [results, setResults] = useState<any>(null);
+<<<<<<< HEAD
   const [showModal, setShowModal] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [calculatedResults, setCalculatedResults] = useState(null);
+=======
+>>>>>>> db92adfbb18799bf559d5fa0b91a5a4e1efca2de
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -63,7 +69,11 @@ export default function Calculator() {
     
     const dcf = dcfValue + terminalValue;
 
+<<<<<<< HEAD
     const calculatedResults = {
+=======
+    setResults({
+>>>>>>> db92adfbb18799bf559d5fa0b91a5a4e1efca2de
       assetBased,
       marketMultiple,
       dcf,
@@ -71,6 +81,7 @@ export default function Calculator() {
         min: Math.min(assetBased, marketMultiple, dcf),
         max: Math.max(assetBased, marketMultiple, dcf)
       }
+<<<<<<< HEAD
     };
 
     setCalculatedResults(calculatedResults);
@@ -107,6 +118,9 @@ export default function Calculator() {
       console.error('Error submitting enquiry:', error);
       alert('Failed to submit enquiry. Please try again.');
     }
+=======
+    });
+>>>>>>> db92adfbb18799bf559d5fa0b91a5a4e1efca2de
   };
 
   const formatCurrency = (value: number) => {
@@ -216,6 +230,7 @@ export default function Calculator() {
             </div>
           </motion.form>
 
+<<<<<<< HEAD
           {showModal && (
             <ContactModal
               onSubmit={handleContactSubmit}
@@ -224,6 +239,9 @@ export default function Calculator() {
           )}
 
           {showResults && results && (
+=======
+          {results && (
+>>>>>>> db92adfbb18799bf559d5fa0b91a5a4e1efca2de
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -274,4 +292,8 @@ export default function Calculator() {
       </div>
     </div>
   );
+<<<<<<< HEAD
 } 
+=======
+}
+>>>>>>> db92adfbb18799bf559d5fa0b91a5a4e1efca2de
