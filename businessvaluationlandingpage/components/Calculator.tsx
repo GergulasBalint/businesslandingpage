@@ -1,16 +1,31 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import React from 'react';
-<<<<<<< HEAD
 import ContactModal from './ContactModal';
-=======
->>>>>>> db92adfbb18799bf559d5fa0b91a5a4e1efca2de
 
 const industryMultipliers = {
   tech: { revenue: 3.5, profit: 15.0 },
   retail: { revenue: 0.8, profit: 8.0 },
   manufacturing: { revenue: 1.2, profit: 10.0 },
   services: { revenue: 1.5, profit: 12.0 }
+};
+
+// Define the type for calculation results
+type CalculationResult = {
+  assetBased: number;
+  marketMultiple: number;
+  dcf: number;
+  recommendedRange: {
+    min: number;
+    max: number;
+  };
+} | null;
+
+type ContactData = {
+  name: string;
+  email: string;
+  phone: string;
+  companyName: string;
 };
 
 export default function Calculator() {
@@ -22,12 +37,9 @@ export default function Calculator() {
   });
 
   const [results, setResults] = useState<any>(null);
-<<<<<<< HEAD
   const [showModal, setShowModal] = useState(false);
   const [showResults, setShowResults] = useState(false);
-  const [calculatedResults, setCalculatedResults] = useState(null);
-=======
->>>>>>> db92adfbb18799bf559d5fa0b91a5a4e1efca2de
+  const [calculatedResults, setCalculatedResults] = useState<CalculationResult>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -69,11 +81,7 @@ export default function Calculator() {
     
     const dcf = dcfValue + terminalValue;
 
-<<<<<<< HEAD
     const calculatedResults = {
-=======
-    setResults({
->>>>>>> db92adfbb18799bf559d5fa0b91a5a4e1efca2de
       assetBased,
       marketMultiple,
       dcf,
@@ -81,14 +89,13 @@ export default function Calculator() {
         min: Math.min(assetBased, marketMultiple, dcf),
         max: Math.max(assetBased, marketMultiple, dcf)
       }
-<<<<<<< HEAD
     };
 
     setCalculatedResults(calculatedResults);
     setShowModal(true);
   };
 
-  const handleContactSubmit = async (contactData) => {
+  const handleContactSubmit = async (contactData: ContactData) => {
     try {
       const response = await fetch('/api/submit-enquiry', {
         method: 'POST',
@@ -118,9 +125,6 @@ export default function Calculator() {
       console.error('Error submitting enquiry:', error);
       alert('Failed to submit enquiry. Please try again.');
     }
-=======
-    });
->>>>>>> db92adfbb18799bf559d5fa0b91a5a4e1efca2de
   };
 
   const formatCurrency = (value: number) => {
@@ -230,7 +234,6 @@ export default function Calculator() {
             </div>
           </motion.form>
 
-<<<<<<< HEAD
           {showModal && (
             <ContactModal
               onSubmit={handleContactSubmit}
@@ -239,9 +242,6 @@ export default function Calculator() {
           )}
 
           {showResults && results && (
-=======
-          {results && (
->>>>>>> db92adfbb18799bf559d5fa0b91a5a4e1efca2de
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -292,8 +292,4 @@ export default function Calculator() {
       </div>
     </div>
   );
-<<<<<<< HEAD
 } 
-=======
-}
->>>>>>> db92adfbb18799bf559d5fa0b91a5a4e1efca2de

@@ -68,7 +68,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     console.error('Error processing enquiry:', error);
     res.status(500).json({ 
       message: 'Error processing enquiry',
-      error: error.message  // Adding error message for debugging
+      error: error instanceof Error ? error.message : 'Unknown error'
     });
   }
 }
